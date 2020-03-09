@@ -1,7 +1,6 @@
 ---
 
 plugins:
-  - jest
   - babel
 
 env:
@@ -10,12 +9,7 @@ env:
 extends:
   - 'airbnb-base'
   - 'plugin:jest/recommended'
-#globals:
-#  Atomics: readonly
-#  SharedArrayBuffer: readonly
-#parserOptions:
-#  ecmaVersion: 2018
-#  sourceType: module
+
 rules:
   no-console: 0
   import/extensions: 0
