@@ -9,5 +9,4 @@ jobs:
       - uses: actions/checkout@v1
       - name: Run linter
         run: |
-          make install
           make lint
