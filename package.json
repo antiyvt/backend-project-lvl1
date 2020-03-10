@@ -30,7 +30,7 @@
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
-    " ": "^6.8.0",
+    "eslint": "^6.8.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-airbnb": "^4.4.0",
     "eslint": "^6.8.0",
