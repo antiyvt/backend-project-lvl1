@@ -30,3 +30,19 @@ export const getRandomOperator = (operatorsString, numberRange) => {
   const randomIndex = Math.floor(Math.random() * Math.floor(numberRange));
   return operatorsString[randomIndex];
 };
+
+/**
+ * findGreatestDivisor returns biggest common divisor of 2 numbers
+ * @example
+ * const divisor = findGreatestDivisor(50, 25); // returns 25
+ */
+export const findGreatestDivisor = (number1, number2) => {
+  const maxDivisor = (number1 > number2) ? number2 : number1;
+  const divisor = (num1, num2, div) => {
+    if ((num1 % div === 0) && (num2 % div === 0)) {
+      return div;
+    }
+    return divisor(num1, num2, div - 1);
+  };
+  return divisor(number1, number2, maxDivisor);
+};
