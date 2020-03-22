@@ -46,3 +46,20 @@ export const findGreatestDivisor = (number1, number2) => {
   };
   return divisor(number1, number2, maxDivisor);
 };
+
+/**
+ * returns amount of elements, defined by "numberOfElements" variable elements of arithmetic
+ * progression with step defined by "step" variable beginning from firstElement
+ * @example
+ * getRandomProgression(10, 2); // return (10, 12, 14, 16, 18, 20, 22, 24, 26, 28)
+ */
+export const getRandomProgression = (firstElement, numberOfElements, step) => {
+  const arr = [];
+  let element = firstElement;
+  const lastElement = firstElement + (numberOfElements - 1) * step;
+  do {
+    arr.push(element);
+    element += step;
+  } while (element <= lastElement);
+  return arr;
+};
