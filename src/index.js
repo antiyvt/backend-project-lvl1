@@ -63,3 +63,23 @@ export const getRandomProgression = (firstElement, numberOfElements, step) => {
   } while (element <= lastElement);
   return arr;
 };
+
+/**
+ * check whether Number is prime number
+ * @example
+ * checkPrimeNumber(10); // return false
+ * checkPrimeNumber(5); // return true
+ */
+export const checkPrimeNumber = (num) => {
+  if (num <= 1) {
+    return false;
+  }
+  let divisor = 2;
+  do {
+    if (num % divisor === 0) {
+      return false;
+    }
+    divisor += 1;
+  } while (divisor < num);
+  return true;
+};
