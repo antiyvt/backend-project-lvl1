@@ -1,15 +1,35 @@
 import readlineSync from 'readline-sync';
 
-export const askName = () => {
-  const nameIs = readlineSync.question('May I have your name? ');
+const numberRange = 100;
+const operators = '+*';
+let nameIs;
+let correctAnswer;
+
+export const greeting = (message) => {
+  console.log('Welcome to the Brain Games!');
+  nameIs = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${nameIs}`);
+  console.log(message);
   return nameIs;
 };
 
-export const greeting = () => {
-  console.log('Welcome to the Brain Games!');
-  const nameIs = askName();
-  console.log(`Hello, ${nameIs}`);
-  return nameIs;
+export const engine = (message, game) => {
+  let numberOfCorrectAnswers = 0;
+  greeting(message);
+  do {
+    if (numberOfCorrectAnswers === 3) {
+      console.log(`Congratulations, ${nameIs}`);
+      break;
+    }
+    game();
+    const answer = readlineSync.question('Your answer: ');
+    if (answer !== correctAnswer) {
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${nameIs}!`);
+      break;
+    }
+    console.log('Correct!');
+    numberOfCorrectAnswers += 1;
+  } while (numberOfCorrectAnswers <= 3);
 };
 
 /**
@@ -18,7 +38,7 @@ export const greeting = () => {
  * @example
  * getRandomInt(100); // return random number from 0 to 100
  */
-export const getRandomInt = (numberRange) => Math.floor(Math.random() * Math.floor(numberRange));
+export const getRandomInt = (range) => Math.floor(Math.random() * Math.floor(range));
 
 /**
  * getRandomOperator returns random operator from operators string, choosed from 0 to number
@@ -26,8 +46,8 @@ export const getRandomInt = (numberRange) => Math.floor(Math.random() * Math.flo
  * const operator = getRandomOperator('+*-/', 2); // returns '+' or '*'
  * const operator = getRandomOperator('', 2); // returns '+' or '*' or '/'
  */
-export const getRandomOperator = (operatorsString, numberRange) => {
-  const randomIndex = Math.floor(Math.random() * Math.floor(numberRange));
+export const getRandomOperator = (operatorsString, range) => {
+  const randomIndex = Math.floor(Math.random() * Math.floor(range));
   return operatorsString[randomIndex];
 };
 
@@ -82,4 +102,47 @@ export const checkPrimeNumber = (num) => {
     divisor += 1;
   } while (divisor < num);
   return true;
+};
+
+export const even = () => {
+  const numberToCheck = getRandomInt(numberRange);
+  console.log('Question: ', numberToCheck);
+  correctAnswer = (numberToCheck % 2 === 0) ? 'yes' : 'no';
+};
+
+export const calc = () => {
+  const operand1 = getRandomInt(numberRange);
+  const operand2 = getRandomInt(numberRange);
+  const operator = getRandomOperator(operators, 2);
+  const expression = `${operand1}${operator}${operand2}`;
+  const expressionToCheck = eval(expression);
+  console.log('Question: ', expression);
+  correctAnswer = String(expressionToCheck);
+};
+
+export const gcd = () => {
+  const number1 = getRandomInt(numberRange);
+  const number2 = getRandomInt(numberRange);
+  const expression = `${number1} ${number2}`;
+  console.log('Question: ', expression);
+  correctAnswer = String(findGreatestDivisor(number1, number2));
+};
+
+export const guessElement = () => {
+  const numberOfElements = 10;
+  const firstElement = getRandomInt(numberRange);
+  const step = getRandomInt(10);
+  const progression = getRandomProgression(firstElement, numberOfElements, step);
+  const randomIndex = getRandomInt(numberOfElements);
+  const tmpProgression = progression.slice();
+  tmpProgression[randomIndex] = '..';
+  const progressionToGuess = tmpProgression;
+  console.log('Question: ', progressionToGuess);
+  correctAnswer = String(progression[randomIndex]);
+};
+
+export const prime = () => {
+  const numberToCheck = getRandomInt(numberRange);
+  console.log('Question: ', numberToCheck);
+  correctAnswer = (checkPrimeNumber(numberToCheck) === true) ? 'yes' : 'no';
 };
