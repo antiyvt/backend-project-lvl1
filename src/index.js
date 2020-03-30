@@ -115,7 +115,8 @@ export const calc = () => {
   const operand2 = getRandomInt(numberRange);
   const operator = getRandomOperator(operators, 2);
   const expression = `${operand1}${operator}${operand2}`;
-  const expressionToCheck = eval(expression);
+  // const expressionToCheck = eval(expression);
+  const expressionToCheck = (operator === '+') ? (operand1 + operand2) : (operand1 * operand2);
   console.log('Question: ', expression);
   correctAnswer = String(expressionToCheck);
 };
