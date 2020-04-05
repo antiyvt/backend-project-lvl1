@@ -4,6 +4,11 @@
 ## install brain games
 https://asciinema.org/a/ldwWCl3WvohEHb1njqyB5tFIo
 
+```sh
+$ git clone https://github.com/antiyvt/backend-project-lvl1/
+$ sudo npm -g install backend-project-lvl1/
+```
+
 ## play game brain-calc
 https://asciinema.org/a/D2DQ2F2x8kf7a9mExrMrFEDFB
 

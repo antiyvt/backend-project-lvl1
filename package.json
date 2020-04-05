@@ -4,12 +4,12 @@
   "description": "hexlet project 1, brain games",
   "main": "src/index.js",
   "bin": {
-    "brain-games": "src/games/brain-games.js",
-    "brain-even": "src/games/brain-even.js",
-    "brain-calc": "src/games/brain-calc.js",
-    "brain-gcd": "src/games/brain-gcd.js",
-    "brain-progression": "src/games/brain-progression.js",
-    "brain-prime": "src/games/brain-prime.js"
+    "brain-games": "src/games/game-brain.js",
+    "brain-even": "src/games/game-even.js",
+    "brain-calc": "src/games/game-calc.js",
+    "brain-gcd": "src/games/game-gcd.js",
+    "brain-progression": "src/games/game-progression.js",
+    "brain-prime": "src/games/game-prime.js"
   },
   "type": "module",
   "scripts": {
