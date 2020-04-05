@@ -13,7 +13,7 @@ export const greeting = (message) => {
 export const engine = (message, questionToCheck = null) => {
   let numberOfCorrectAnswers = 0;
   if (questionToCheck === null) {
-    greeting(message);
+    greeting('');
     return false;
   }
   greeting(message);

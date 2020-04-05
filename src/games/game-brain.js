@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
-export { engine } from '../index.js';
+import { engine } from '../index.js';
+
+export default engine;
