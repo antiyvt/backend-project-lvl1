@@ -6,8 +6,8 @@ import { getRandomInt, engine } from '../index.js';
  * checkPrimeNumber(10); // return false
  * checkPrimeNumber(5); // return true
  */
-export const checkPrimeNumber = (num) => {
-  if (num <= 1) {
+const checkPrimeNumber = (num) => {
+  if (num < 2) {
     return false;
   }
   let divisor = 2;
@@ -16,7 +16,7 @@ export const checkPrimeNumber = (num) => {
       return false;
     }
     divisor += 1;
-  } while (divisor < num);
+  } while (divisor < num / 2);
   return true;
 };
 

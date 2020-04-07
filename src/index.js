@@ -29,7 +29,8 @@ export const engine = (message, questionToCheck = null) => {
 
     const answer = readlineSync.question('Your answer: ');
     if (answer !== expectedAnswer) {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${expectedAnswer}".\nLet's try again, ${nameIs}!`);
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${expectedAnswer}".`);
+      console.log(`Let's try again, ${nameIs}!`);
       break;
     }
     console.log('Correct!');
