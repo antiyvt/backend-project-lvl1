@@ -1,4 +1,5 @@
-import { getRandomInt, engine } from '../index.js';
+import engine from '../index.js';
+import getRandomInt from '../utils.js';
 
 /**
  * check whether Number is prime number
@@ -20,14 +21,14 @@ const checkPrimeNumber = (num) => {
   return true;
 };
 
-const prime = (numberRange = 100) => {
+const prime = (numberRange = [0, 50]) => {
   const questionToCheck = () => {
-    const number = getRandomInt(numberRange);
+    const number = getRandomInt(...numberRange);
     const isPrimeNumber = ((checkPrimeNumber(number) === true) ? 'yes' : 'no');
     return { question: number, expectedAnswer: isPrimeNumber };
   };
-
-  engine('Answer "yes" if given number is prime. Otherwise answer "no".', questionToCheck);
+  const rulesOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  engine(rulesOfGame, questionToCheck);
 };
 
 export default prime;

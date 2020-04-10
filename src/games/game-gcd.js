@@ -1,4 +1,5 @@
-import { getRandomInt, engine } from '../index.js';
+import engine from '../index.js';
+import getRandomInt from '../utils.js';
 
 /**
  * findGreatestDivisor returns biggest common divisor of 2 numbers
@@ -16,15 +17,15 @@ export const findGreatestDivisor = (number1, number2) => {
   return divisor(number1, number2, maxDivisor);
 };
 
-const greatestDivisor = (numberRange = 30) => {
+const greatestDivisor = (numberRange = [0, 30]) => {
   const questionToCheck = () => {
-    const number1 = getRandomInt(numberRange);
-    const number2 = getRandomInt(numberRange);
+    const number1 = getRandomInt(...numberRange);
+    const number2 = getRandomInt(...numberRange);
     const expression = `${number1} ${number2}`;
     return { question: expression, expectedAnswer: String(findGreatestDivisor(number1, number2)) };
   };
-
-  engine('Find the greatest common divisor of given numbers.', questionToCheck);
+  const rulesOfGame = 'Find the greatest common divisor of given numbers.';
+  engine(rulesOfGame, questionToCheck);
 };
 
 export default greatestDivisor;

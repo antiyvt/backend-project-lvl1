@@ -12,11 +12,27 @@ $ sudo npm -g install backend-project-lvl1/
 ## play game brain-calc
 https://asciinema.org/a/D2DQ2F2x8kf7a9mExrMrFEDFB
 
+```sh
+$ brain-calc
+```
+
 ## play game brain-gcd
 https://asciinema.org/a/yWYyFcuzkQnejbG0XYRWasGZ0
+
+```sh
+$ brain-gcd
+```
 
 ## play game brain-progression
 https://asciinema.org/a/2shZcmyezHreBgxoHhFO6UQNc
 
+```sh
+$ brain-progression
+```
+
 ## play game brain-prime
 https://asciinema.org/a/gTwTvmHlCSoH6vNC2M471vwCz
+
+```sh
+$ brain-prime
+```

@@ -1,4 +1,5 @@
-import { getRandomInt, engine } from '../index.js';
+import engine from '../index.js';
+import getRandomInt from '../utils.js';
 
 /**
  * returns amount of elements, defined by "numberOfElements" variable elements of arithmetic
@@ -17,10 +18,10 @@ export const getRandomProgression = (firstElement, numberOfElements, step) => {
   return arr;
 };
 
-const guessElement = (numberRange = 100) => {
+const guessElement = (numberRange = [0, 30]) => {
   const questionToCheck = () => {
     const numberOfElements = 10;
-    const firstElement = getRandomInt(numberRange);
+    const firstElement = getRandomInt(...numberRange);
     const step = getRandomInt(10);
     const progression = getRandomProgression(firstElement, numberOfElements, step);
     const randomIndex = getRandomInt(numberOfElements);
@@ -28,8 +29,8 @@ const guessElement = (numberRange = 100) => {
     tmpProgression[randomIndex] = '..';
     return { question: tmpProgression, expectedAnswer: String(progression[randomIndex]) };
   };
-
-  engine('What number is missing in the progression?', questionToCheck);
+  const rulesOfGame = 'What number is missing in the progression?';
+  engine(rulesOfGame, questionToCheck);
 };
 
 export default guessElement;
