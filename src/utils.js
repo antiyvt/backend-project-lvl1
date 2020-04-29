@@ -5,6 +5,6 @@
  * range = [50, 100];
  * getRandomInt(100); // return random number from 50 to 100
  */
-const getRandomInt = (min, max) => (min + Math.floor(Math.random() * (max - min)));
+const getRandomInt = (min, max) => (min + Math.floor(Math.random() * (max + 1 - min)));
 
 export default getRandomInt;

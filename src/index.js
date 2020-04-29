@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync';
 
-const engine = (message, questionToCheck = null) => {
+const numberOfCorrectAnswers = 3;
+
+const runEngine = (message, questionToCheck = null) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}`);
@@ -9,7 +11,7 @@ const engine = (message, questionToCheck = null) => {
   }
   console.log(message);
 
-  for (let numberOfCorrectAnswers = 0; numberOfCorrectAnswers < 3; numberOfCorrectAnswers += 1) {
+  for (let i = 0; i < numberOfCorrectAnswers; i += 1) {
     const { question, expectedAnswer } = questionToCheck();
 
     console.log('Question: ', question);
@@ -26,4 +28,4 @@ const engine = (message, questionToCheck = null) => {
   return true;
 };
 
-export default engine;
+export default runEngine;
