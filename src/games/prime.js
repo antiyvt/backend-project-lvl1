@@ -25,7 +25,7 @@ const checkPrimeNumber = (num) => {
 
 const prime = () => {
   const questionToCheck = () => {
-    const number = getRandomInt(0,100);
+    const number = getRandomInt(0, 100);
     const isPrimeNumber = ((checkPrimeNumber(number) === true) ? 'yes' : 'no');
     return { question: number, expectedAnswer: isPrimeNumber };
   };

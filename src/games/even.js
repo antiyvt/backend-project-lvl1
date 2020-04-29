@@ -5,11 +5,11 @@ const rulesOfGame = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 const even = () => {
   const questionToCheck = () => {
-    const number = getRandomInt(0,100);
-    const isEvenNumber = (number) => number % 2 === 0;
+    const number = getRandomInt(0, 100);
+    const isEvenNumber = (num) => num % 2 === 0;
     return { question: number, expectedAnswer: isEvenNumber(number) ? 'yes' : 'no' };
   };
-    runEngine(rulesOfGame, questionToCheck);
+  runEngine(rulesOfGame, questionToCheck);
 };
 
 export default even;

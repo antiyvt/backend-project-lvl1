@@ -17,8 +17,8 @@ export const getRandomOperator = (operatorsString) => {
 const calc = () => {
   const questionToCheck = () => {
     const operators = '+*-';
-    const operand1 = getRandomInt(0,30);
-    const operand2 = getRandomInt(0,30);
+    const operand1 = getRandomInt(0, 30);
+    const operand2 = getRandomInt(0, 30);
     const operator = getRandomOperator(operators);
     const expression = `${operand1}${operator}${operand2}`;
     let resultOfExpression = 0;
@@ -32,8 +32,10 @@ const calc = () => {
       case '*':
         resultOfExpression = (operand1 * operand2);
         break;
+      default:
+        break;
     }
-    
+
     return { question: expression, expectedAnswer: String(resultOfExpression) };
   };
   runEngine(rulesOfGame, questionToCheck);

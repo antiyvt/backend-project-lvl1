@@ -25,10 +25,10 @@ getRandomProgression(2, 10, 3);
 const guessElement = () => {
   const questionToCheck = () => {
     const numberOfElements = 10;
-    const firstElement = getRandomInt(0,100);
-    const step = getRandomInt(0,10);
+    const firstElement = getRandomInt(0, 100);
+    const step = getRandomInt(0, 10);
     const progression = getRandomProgression(firstElement, numberOfElements, step);
-    const randomIndex = getRandomInt(0,numberOfElements);
+    const randomIndex = getRandomInt(0, numberOfElements);
     const tmpProgression = progression.slice();
     tmpProgression[randomIndex] = '..';
     return { question: tmpProgression, expectedAnswer: String(progression[randomIndex]) };
