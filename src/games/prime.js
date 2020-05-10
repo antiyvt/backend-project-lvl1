@@ -9,7 +9,7 @@ const rulesOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no
  * checkPrimeNumber(10); // return false
  * checkPrimeNumber(5); // return true
  */
-const checkPrimeNumber = (num) => {
+const isPrime = (num) => {
   if (num < 2) {
     return false;
   }
@@ -23,13 +23,13 @@ const checkPrimeNumber = (num) => {
   return true;
 };
 
+const prepareQuestionAnswerPair = () => {
+  const number = getRandomInt(0, 100);
+  return { question: number, expectedAnswer: isPrime(number) ? 'yes' : 'no' };
+};
+
 const prime = () => {
-  const questionToCheck = () => {
-    const number = getRandomInt(0, 100);
-    const isPrimeNumber = ((checkPrimeNumber(number) === true) ? 'yes' : 'no');
-    return { question: number, expectedAnswer: isPrimeNumber };
-  };
-  runEngine(rulesOfGame, questionToCheck);
+  runEngine(rulesOfGame, prepareQuestionAnswerPair);
 };
 
 export default prime;

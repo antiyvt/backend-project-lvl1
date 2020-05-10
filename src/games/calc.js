@@ -8,37 +8,38 @@ const rulesOfGame = 'What is the result of the expression?';
  * @example
  * const operator = getRandomOperator('+*-/'); // returns '+' or '*' or '-' or '*'
  */
-export const getRandomOperator = (operatorsString) => {
-  const operatorsStringLength = operatorsString.length;
-  const randomIndex = Math.floor(Math.random() * Math.floor(operatorsStringLength));
-  return operatorsString[randomIndex];
+const getRandomOperator = (operators) => {
+  const numberOfOperators = operators.length;
+  const randomIndex = getRandomInt(0, numberOfOperators - 1);
+  return operators[randomIndex];
+};
+
+
+const prepareQuestionAnswerPair = () => {
+  const operators = '+*-';
+  const operand1 = getRandomInt(0, 30);
+  const operand2 = getRandomInt(0, 30);
+  const operator = getRandomOperator(operators);
+  const expression = `${operand1}${operator}${operand2}`;
+  let resultOfExpression;
+  switch (operator) {
+    case '+':
+      resultOfExpression = (operand1 + operand2);
+      break;
+    case '-':
+      resultOfExpression = (operand1 - operand2);
+      break;
+    case '*':
+      resultOfExpression = (operand1 * operand2);
+      break;
+    default:
+      break;
+  }
+  return { question: expression, expectedAnswer: String(resultOfExpression) };
 };
 
 const calc = () => {
-  const questionToCheck = () => {
-    const operators = '+*-';
-    const operand1 = getRandomInt(0, 30);
-    const operand2 = getRandomInt(0, 30);
-    const operator = getRandomOperator(operators);
-    const expression = `${operand1}${operator}${operand2}`;
-    let resultOfExpression = 0;
-    switch (operator) {
-      case '+':
-        resultOfExpression = (operand1 + operand2);
-        break;
-      case '-':
-        resultOfExpression = (operand1 - operand2);
-        break;
-      case '*':
-        resultOfExpression = (operand1 * operand2);
-        break;
-      default:
-        break;
-    }
-
-    return { question: expression, expectedAnswer: String(resultOfExpression) };
-  };
-  runEngine(rulesOfGame, questionToCheck);
+  runEngine(rulesOfGame, prepareQuestionAnswerPair);
 };
 
 export default calc;
