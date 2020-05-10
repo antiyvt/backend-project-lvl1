@@ -26,8 +26,8 @@ const prepareQuestionAnswerPair = () => {
   return { question: expression, expectedAnswer: String(findGreatestDivisor(number1, number2)) };
 };
 
-const greatestDivisor = () => {
+const runGreatestDivisorGame = () => {
   runEngine(rulesOfGame, prepareQuestionAnswerPair);
 };
 
-export default greatestDivisor;
+export default runGreatestDivisorGame;

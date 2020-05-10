@@ -38,8 +38,8 @@ const prepareQuestionAnswerPair = () => {
   return { question: expression, expectedAnswer: String(resultOfExpression) };
 };
 
-const calc = () => {
+const runCalcGame = () => {
   runEngine(rulesOfGame, prepareQuestionAnswerPair);
 };
 
-export default calc;
+export default runCalcGame;

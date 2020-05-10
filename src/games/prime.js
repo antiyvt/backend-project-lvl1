@@ -28,8 +28,8 @@ const prepareQuestionAnswerPair = () => {
   return { question: number, expectedAnswer: isPrime(number) ? 'yes' : 'no' };
 };
 
-const prime = () => {
+const runPrimeGame = () => {
   runEngine(rulesOfGame, prepareQuestionAnswerPair);
 };
 
-export default prime;
+export default runPrimeGame;
