@@ -19,7 +19,7 @@ const prepareQuestionAnswerPair = () => {
   const operand1 = getRandomInt(0, 30);
   const operand2 = getRandomInt(0, 30);
   const operator = getRandomOperator(operators);
-  const expression = `${operand1}${operator}${operand2}`;
+  const question = `${operand1}${operator}${operand2}`;
   let resultOfExpression;
   switch (operator) {
     case '+':
@@ -34,7 +34,7 @@ const prepareQuestionAnswerPair = () => {
     default:
       break;
   }
-  return { question: expression, expectedAnswer: String(resultOfExpression) };
+  return { question, expectedAnswer: String(resultOfExpression) };
 };
 
 const runCalcGame = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);

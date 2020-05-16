@@ -25,9 +25,9 @@ const prepareQuestionAnswerPair = () => {
   const step = getRandomInt(1, 10);
   const progression = generateArithmeticProgression(firstElement, numberOfElements, step);
   const randomIndex = getRandomInt(0, numberOfElements - 1);
-  const tmpProgression = progression.slice();
-  tmpProgression[randomIndex] = '..';
-  return { question: tmpProgression, expectedAnswer: String(progression[randomIndex]) };
+  const question = progression.slice();
+  question[randomIndex] = '..';
+  return { question, expectedAnswer: String(progression[randomIndex]) };
 };
 
 const guessElement = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);

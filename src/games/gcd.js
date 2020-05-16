@@ -22,8 +22,8 @@ const findGreatestDivisor = (number1, number2) => {
 const prepareQuestionAnswerPair = () => {
   const number1 = getRandomInt(0, 100);
   const number2 = getRandomInt(0, 100);
-  const expression = `${number1} ${number2}`;
-  return { question: expression, expectedAnswer: String(findGreatestDivisor(number1, number2)) };
+  const question = `${number1} ${number2}`;
+  return { question, expectedAnswer: String(findGreatestDivisor(number1, number2)) };
 };
 
 const runGreatestDivisorGame = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);

@@ -24,8 +24,8 @@ const isPrime = (num) => {
 };
 
 const prepareQuestionAnswerPair = () => {
-  const number = getRandomInt(0, 100);
-  return { question: number, expectedAnswer: isPrime(number) ? 'yes' : 'no' };
+  const question = getRandomInt(0, 100);
+  return { question, expectedAnswer: isPrime(question) ? 'yes' : 'no' };
 };
 
 const runPrimeGame = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);
