@@ -1,7 +1,7 @@
 import runEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
-const rulesOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 /**
  * check whether Number is prime number
@@ -28,8 +28,6 @@ const prepareQuestionAnswerPair = () => {
   return { question: number, expectedAnswer: isPrime(number) ? 'yes' : 'no' };
 };
 
-const runPrimeGame = () => {
-  runEngine(rulesOfGame, prepareQuestionAnswerPair);
-};
+const runPrimeGame = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);
 
 export default runPrimeGame;

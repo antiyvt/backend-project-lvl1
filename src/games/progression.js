@@ -1,7 +1,7 @@
 import runEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
-const rulesOfGame = 'What number is missing in the progression?';
+const ruleOfGame = 'What number is missing in the progression?';
 
 /**
  * returns amount of elements, defined by "numberOfElements" variable elements of arithmetic
@@ -10,13 +10,13 @@ const rulesOfGame = 'What number is missing in the progression?';
  * getRandomProgression(10, 2); // return (10, 12, 14, 16, 18, 20, 22, 24, 26, 28)
  */
 const generateArithmeticProgression = (firstElement, numberOfElements, step) => {
-  const arr = [];
+  const elementsOfProgression = [];
   let element;
   for (let i = 0; i < numberOfElements; i += 1) {
     element = firstElement + i * step;
-    arr.push(element);
+    elementsOfProgression.push(element);
   }
-  return arr;
+  return elementsOfProgression;
 };
 
 const prepareQuestionAnswerPair = () => {
@@ -30,8 +30,6 @@ const prepareQuestionAnswerPair = () => {
   return { question: tmpProgression, expectedAnswer: String(progression[randomIndex]) };
 };
 
-const guessElement = () => {
-  runEngine(rulesOfGame, prepareQuestionAnswerPair);
-};
+const guessElement = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);
 
 export default guessElement;

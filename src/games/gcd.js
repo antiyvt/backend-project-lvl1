@@ -1,7 +1,7 @@
 import runEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
-const rulesOfGame = 'Find the greatest common divisor of given numbers.';
+const ruleOfGame = 'Find the greatest common divisor of given numbers.';
 
 /**
  * findGreatestDivisor returns biggest common divisor of 2 numbers
@@ -26,8 +26,6 @@ const prepareQuestionAnswerPair = () => {
   return { question: expression, expectedAnswer: String(findGreatestDivisor(number1, number2)) };
 };
 
-const runGreatestDivisorGame = () => {
-  runEngine(rulesOfGame, prepareQuestionAnswerPair);
-};
+const runGreatestDivisorGame = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);
 
 export default runGreatestDivisorGame;

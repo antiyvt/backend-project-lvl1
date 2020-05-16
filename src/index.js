@@ -2,14 +2,14 @@ import readlineSync from 'readline-sync';
 
 const numberOfCorrectAnswers = 3;
 
-const runEngine = (message, questionToCheck = null) => {
+const runEngine = (message, prepareQuestionAnswerPair) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}`);
   console.log(message);
 
   for (let i = 0; i < numberOfCorrectAnswers; i += 1) {
-    const { question, expectedAnswer } = questionToCheck();
+    const { question, expectedAnswer } = prepareQuestionAnswerPair();
 
     console.log('Question: ', question);
     const answer = readlineSync.question('Your answer: ');

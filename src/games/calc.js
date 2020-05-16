@@ -1,7 +1,7 @@
 import runEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
-const rulesOfGame = 'What is the result of the expression?';
+const ruleOfGame = 'What is the result of the expression?';
 
 /**
  * getRandomOperator returns random operator from operators string, chosen from 0 to number
@@ -13,7 +13,6 @@ const getRandomOperator = (operators) => {
   const randomIndex = getRandomInt(0, numberOfOperators - 1);
   return operators[randomIndex];
 };
-
 
 const prepareQuestionAnswerPair = () => {
   const operators = '+*-';
@@ -38,8 +37,6 @@ const prepareQuestionAnswerPair = () => {
   return { question: expression, expectedAnswer: String(resultOfExpression) };
 };
 
-const runCalcGame = () => {
-  runEngine(rulesOfGame, prepareQuestionAnswerPair);
-};
+const runCalcGame = () => runEngine(ruleOfGame, prepareQuestionAnswerPair);
 
 export default runCalcGame;
